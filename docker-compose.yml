@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  naps-web:
+    build: .
+    container_name: naps-website
+    ports:
+      - "8080:80"
+    restart: unless-stopped

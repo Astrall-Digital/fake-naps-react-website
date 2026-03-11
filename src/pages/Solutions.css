@@ -1,0 +1,72 @@
+.sol-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.sol-tab {
+  font-size: 14.5px; font-weight: 600;
+  color: var(--gray-500);
+  padding: 12px 20px;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1px;
+  transition: color .18s, border-color .18s;
+  cursor: pointer;
+}
+.sol-tab:hover,
+.sol-tab.active {
+  color: var(--black);
+  border-bottom-color: var(--orange);
+}
+
+.sol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.sol-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: box-shadow .22s, transform .22s;
+  cursor: pointer;
+}
+.sol-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,.08);
+  transform: translateY(-3px);
+}
+.sol-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.sol-card-body { padding: 24px; }
+.sol-card-eyebrow {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .7px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 8px;
+}
+.sol-card h3 {
+  font-size: 17px; font-weight: 700;
+  color: var(--black); margin-bottom: 10px;
+  letter-spacing: -.2px;
+}
+.sol-card p { font-size: 13.5px; color: var(--gray-500); line-height: 1.65; }
+.sol-features {
+  display: flex; flex-direction: column;
+  gap: 7px; margin-top: 16px;
+}
+.sol-feat {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 13px; color: var(--gray-700);
+}
+.sol-feat svg { color: var(--orange); flex-shrink: 0; }
+
+@media (max-width: 960px) {
+  .sol-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .sol-grid { grid-template-columns: 1fr; }
+  .sol-tabs { overflow-x: auto; }
+}
