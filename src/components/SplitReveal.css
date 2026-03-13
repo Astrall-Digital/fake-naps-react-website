@@ -1,8 +1,14 @@
 /* ── Wrapper: tall so scroll has room ──────────────────────────────────────── */
 .sr-wrapper {
   position: relative;
-  height: 250vh; /* Adjusted for better scroll feel */
+  height: 250vh;
   background: var(--black, #09090f);
+}
+
+@media (max-width: 767px) {
+  .sr-wrapper {
+    height: 160vh;
+  }
 }
 
 /* ── Sticky viewport-height stage ─────────────────────────────────────────── */
@@ -10,7 +16,7 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  height: 100dvh; /* Use dynamic viewport height if supported */
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,14 +24,30 @@
   gap: 2rem;
   overflow: hidden;
   background: var(--black, #09090f);
-  padding: 60px 20px 20px; /* Space for site header if present */
+  padding: 60px 20px 20px;
+}
+
+@media (max-width: 767px) {
+  .sr-stage {
+    top: 64px;
+    height: calc(100vh - 64px);
+    gap: 1.25rem;
+    padding-top: 20px;
+  }
 }
 
 /* ── Frame — both cards stack inside here ──────────────────────────────────── */
 .sr-frame {
   position: relative;
-  width: min(720px, 90vw); /* Slightly wider for NAPS dashboard look */
+  width: min(720px, 90vw);
   height: min(480px, 60vh);
+}
+
+@media (max-width: 767px) {
+  .sr-frame {
+    width: 88vw;
+    height: min(280px, 44vh);
+  }
 }
 
 /* ── Cards ─────────────────────────────────────────────────────────────────── */
@@ -35,12 +57,17 @@
   border-radius: 24px;
   overflow: hidden;
   will-change: transform;
-  box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.sr-card--back  { z-index: 1; }   /* underneath */
-.sr-card--front { z-index: 2; }   /* on top      */
+.sr-card--back {
+  z-index: 1;
+}
+
+.sr-card--front {
+  z-index: 2;
+}
 
 /* ── Image ─────────────────────────────────────────────────────────────────── */
 .sr-img {
@@ -65,7 +92,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: white;
-  background: rgba(249, 111, 6, 0.85); /* NAPS Orange */
+  background: rgba(249, 111, 6, 0.85);
   backdrop-filter: blur(12px);
   padding: 8px 20px;
   border-radius: 40px;
@@ -78,6 +105,14 @@
 
 .sr-wrapper.is-splitting .sr-label {
   opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .sr-label {
+    bottom: 16px;
+    font-size: 0.7rem;
+    padding: 6px 16px;
+  }
 }
 
 /* ── Tagline ───────────────────────────────────────────────────────────────── */
@@ -98,13 +133,13 @@
 }
 
 .sr-tagline::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--orange, #f96f06);
-    margin: 1.5rem auto 0;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--orange, #f96f06);
+  margin: 1.5rem auto 0;
+  border-radius: 2px;
 }
 
 .sr-wrapper.is-splitting .sr-tagline {
@@ -112,26 +147,13 @@
   transform: none;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .sr-stage {
-    gap: 1rem;
-    padding-top: 80px; /* Offset for header */
-  }
-  .sr-frame {
-    width: 88vw;
-    height: 40vh; /* Reduced height on mobile */
-  }
+@media (max-width: 767px) {
   .sr-tagline {
     font-size: 1rem;
     padding: 0 15px;
   }
+
   .sr-tagline::after {
     margin-top: 1rem;
-  }
-  .sr-label {
-    bottom: 16px;
-    font-size: 0.7rem;
-    padding: 6px 16px;
   }
 }
